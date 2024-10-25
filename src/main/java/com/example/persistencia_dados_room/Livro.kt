@@ -1,0 +1,14 @@
+package com.example.persistencia_dados_room
+
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "livros")
+data class Livro(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val titulo: String,
+    val autor: String,
+    val dataConclusao: String, // dd/mm/yyyy
+    val avaliacao: Int // Representa a avaliação (1 - 5)
+)
