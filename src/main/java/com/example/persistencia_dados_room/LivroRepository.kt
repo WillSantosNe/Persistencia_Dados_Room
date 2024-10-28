@@ -13,4 +13,8 @@ class LivroRepository(private val livroDao: LivroDao) {
     suspend fun deletarLivro(livro: Livro) {
         livroDao.deletar(livro)
     }
+
+    suspend fun atualizarLivro(livro : Livro){
+        livroDao.atualizar(livro)
+    }
 }

@@ -1,12 +1,13 @@
 package com.example.persistencia_dados_room
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
+import androidx.room.RoomDatabase
 
-@Database(entities = [Livro::class], version = 1)
+@Database(entities = [Livro::class], version = 1, exportSchema = false)
 abstract class BibliotecaDatabase : RoomDatabase() {
+
     abstract fun livroDao(): LivroDao
 
     companion object {
@@ -18,7 +19,7 @@ abstract class BibliotecaDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     BibliotecaDatabase::class.java,
-                    "app_database"
+                    "biblioteca_database"
                 ).build()
                 INSTANCE = instance
                 instance
@@ -26,4 +27,3 @@ abstract class BibliotecaDatabase : RoomDatabase() {
         }
     }
 }
-
